@@ -1,0 +1,17 @@
+* RTEMS demo for stm32f4-disco
+
+** How to build
+#+begin_src bash
+  ./waf configure --prefix=<sdk path> --rtems-bsps=arm/stm32f4
+#+end_src
+
+** How to generate binary code
+#+begin_src bash
+  arm-rtems6-objcopy -O binary build/arm-rtems6-stm32f4/hello.exe build/arm-rtems6-stm32f4/hello.bin
+#+end_src
+
+** How to program target device
+#+begin_src bash
+  openocd -f openocd.cfg -c 'init' -c 'targets' -c 'reset init'  -c 'program build/arm-rtems6-stm32f4/hello.bin erase verify reset 0x08000000' -c 'reset run'
+#+end_src
+

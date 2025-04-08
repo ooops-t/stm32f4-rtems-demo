@@ -1,0 +1,3 @@
+[submodule "rtems_waf"]
+	path = rtems_waf
+	url = https://gitlab.rtems.org/rtems/tools/rtems_waf.git
